@@ -58,7 +58,9 @@ const Recruiterdashboard = () => {
         <input
           type="file"
           multiple
-          onChange={(e) => setResumes(e.target.files)}
+          onChange={(e) => setResumes(Array.from(e.target.files))
+          }
+
         />
         <input
           type="number"

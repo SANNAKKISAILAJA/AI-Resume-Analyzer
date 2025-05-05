@@ -59,20 +59,20 @@ export default function WelcomePage() {
 
   const handleSignup = async (e) => {
     e.preventDefault();
-
+  
     if (!name || !email || !password || !confirmPassword) {
       alert("All fields are required");
       return;
     }
-
+  
     if (password !== confirmPassword) {
       alert("Passwords do not match");
       return;
     }
-
+  
     try {
-      // Pass role to the register function
-      const res = await register(name, email, password, role);
+      // Call the register function from your auth API
+      const res = await register(name, email, password);
       console.log("Signup response:", res);
       if (res.message === "User registered successfully") {
         alert("Signup successful! Please login.");
@@ -85,7 +85,7 @@ export default function WelcomePage() {
       alert("Error during signup");
     }
   };
-
+  
   return (
     <div>
       {/* Navbar */}
